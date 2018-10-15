@@ -13,19 +13,35 @@
  * version in the future.
  *
  * @category    Mageplaza
- * @package     Mageplaza_ShareCart
+ * @package     Mageplaza_RewardPoints
  * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
  * @license     https://www.mageplaza.com/LICENSE.txt
  */
 define([
     'uiComponent',
-    'Magento_Checkout/js/model/quote'
-], function (Component, quote) {
+    'Magento_Customer/js/customer-data'
+], function (Component,customerData) {
     'use strict';
 
     return Component.extend({
         defaults: {
             template: 'Mageplaza_ShareCart/minicart'
+        },
+
+        getQuoteId: function (){
+
+            return customerData.get('cart')().quote_url;
+        },
+
+        copyQuote: function(){
+            var quoteId=document.getElementById("mpQuote");
+
+            /* Select the text field */
+            quoteId.select();
+
+            /* Copy the text inside the text field */
+            document.execCommand("copy")
+            console.log('copied');
         },
     });
 });

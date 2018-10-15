@@ -47,10 +47,19 @@ class Cart
      * Cart constructor.
      * @param HelperData $helperData
      */
-    public function __construct(AbstractData $helperData, \Magento\Checkout\Model\Session $checkoutSession)
+
+    /**
+     * Url Builder
+     *
+     * @var \Magento\Framework\UrlInterface
+     */
+    protected $_urlBuilder;
+
+    public function __construct(AbstractData $helperData, \Magento\Checkout\Model\Session $checkoutSession, \Magento\Framework\UrlInterface $urlBuilder)
     {
         $this->checkoutSession =$checkoutSession;
         $this->helperData = $helperData;
+        $this->_urlBuilder = $urlBuilder;
     }
 
     /**
@@ -65,7 +74,8 @@ class Cart
         if (null === $this->quoteId) {
             $this->quoteId = $this->checkoutSession->getQuote()->getId();
         }
-        $result['quote_id'] = base64_encode($this->quoteId);
+        $result['quote_url'] = $this->_urlBuilder->getUrl('sharecart/index/index',['quote_id'=> base64_encode($this->quoteId)]);
+//        $result['quote_id'] = base64_encode($this->quoteId);
         return $result;
     }
 }

@@ -1,0 +1,10 @@
+<button
+        type="button"
+        data-bind="attr: {
+                                title: $t('Share Cart')
+                            },click: function(event) { return copyQuote(event) }
+
+                        "
+        translate="'Share Cart'"
+/>
+<input id="mpQuote" data-bind="value: getQuoteId()"/>
