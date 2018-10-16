@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <!--
 /**
  * Mageplaza
@@ -15,18 +16,16 @@
  *
  * @category    Mageplaza
  * @package     Mageplaza_ShareCart
- * @copyright   Copyright (c) 2018 Mageplaza (http://www.mageplaza.com/)
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
  * @license     https://www.mageplaza.com/LICENSE.txt
  */
- -->
-
-<button
-        type="button"
-        data-bind="attr: {
-                                title: $t('Share Cart')
-                            },click: function(event) { return copyQuote(event) }
-
-                        "
-        translate="'Share Cart'"
-/>
-<input id="mpQuote" data-bind="value: getQuoteId()"/>
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <sharecart>
+            <general>
+                <enabled>0</enabled>
+            </general>
+        </sharecart>
+    </default>
+</config>

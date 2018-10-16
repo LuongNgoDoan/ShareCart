@@ -14,7 +14,7 @@
  * version in the future.
  *
  * @category    Mageplaza
- * @package     Mageplaza_RewardPoints
+ * @package     Mageplaza_ShareCart
  * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
  * @license     https://www.mageplaza.com/LICENSE.txt
  */
@@ -42,12 +42,6 @@ class Cart
      * @var \Mageplaza\Core\Helper\AbstractData
      */
     protected $helperData;
-
-    /**
-     * Cart constructor.
-     * @param HelperData $helperData
-     */
-
     /**
      * Url Builder
      *
@@ -63,7 +57,7 @@ class Cart
     }
 
     /**
-     * Add Reward point data to result
+     * Add Url data to result
      *
      * @param \Magento\Checkout\CustomerData\Cart $subject
      * @param $result
@@ -75,7 +69,6 @@ class Cart
             $this->quoteId = $this->checkoutSession->getQuote()->getId();
         }
         $result['quote_url'] = $this->_urlBuilder->getUrl('sharecart/index/index',['quote_id'=> base64_encode($this->quoteId)]);
-//        $result['quote_id'] = base64_encode($this->quoteId);
         return $result;
     }
 }

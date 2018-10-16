@@ -1,5 +1,4 @@
-<?xml version="1.0"?>
-<!--
+<?php
 /**
  * Mageplaza
  *
@@ -15,13 +14,19 @@
  * version in the future.
  *
  * @category    Mageplaza
- * @package     Mageplaza_ShareCart
+ * @package     Mageplaza_Osc
  * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
  * @license     https://www.mageplaza.com/LICENSE.txt
  */
--->
-<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
-    <type name="Magento\Checkout\CustomerData\Cart">
-        <plugin name="mpShareCartCustomerDataCart" type="Mageplaza\ShareCart\Plugin\CustomerData\Cart"/>
-    </type>
-</config>
+
+namespace Mageplaza\ShareCart\Helper;
+
+use Mageplaza\Core\Helper\AbstractData;
+
+/**
+ * Class Data
+ * @package Mageplaza\ShareCart\Helper
+ */
+class Data extends AbstractData
+{
+}
